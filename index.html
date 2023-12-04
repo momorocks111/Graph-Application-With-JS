@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Graph App | JavaScript</title>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="clear-modal" id="clearModal">
+        <p class="clear-text">Are you sure?</p>
+        <div class="clear-btns-container">
+          <button class="yes-btn" id="yesBtn">Yes</button>
+          <button class="no-btn" id="noBtn">No</button>
+        </div>
+      </div>
+      <div class="header-container">
+        <h2 class="web-title">Graph Application</h2>
+        <i class="ri-moon-line change-theme" id="theme-button"></i>
+      </div>
+      <div class="welcome-container">
+        <p class="welcome-title" data-greeting></p>
+        <span class="welcome-text" data-current-date></span>
+      </div>
+    </header>
+    <main class="main">
+      <section class="graph-section">
+        <div class="graph-container">
+          <button class="clear-btn" id="clearBtn">Clear Graph</button>
+          <canvas class="graph-canvas" id="graphCanvas"></canvas>
+        </div>
+        <div class="user-gui">
+          <div class="add-vertex-container">
+            <div class="vertex-content">
+              <input type="text" id="vertexValue" placeholder="Vertex Value" />
+              <p class="vertex-error error" id="vertexError"></p>
+            </div>
+            <button class="vertex-btn" id="add-vertex" for="vertexValue">
+              Add Vertex
+            </button>
+          </div>
+          <div class="add-edge-container">
+            <div class="edge-inputs">
+              <input
+                type="text"
+                class="edge-start"
+                id="edgeStart"
+                placeholder="Start vertex"
+              />
+              <p class="start-error error" id="startError"></p>
+              <input
+                type="text"
+                class="edge-end"
+                id="edgeEnd"
+                placeholder="End vertex"
+              />
+              <p class="end-error error" id="endError"></p>
+            </div>
+            <button class="edge-btn" id="add-edge">Add Edge</button>
+          </div>
+          <div class="find-connected-vertex">
+            <div class="find-vertex-content">
+              <input
+                type="text"
+                id="findVertexValue"
+                placeholder="Find Vertex Connection"
+              />
+              <p class="vertex-error error" id="findVertexError"></p>
+            </div>
+            <button
+              class="find-vertex-btn"
+              id="findVertexBtn"
+              for="findVertexValue"
+            >
+              Find Connections
+            </button>
+            <p
+              class="display-vertex-connections"
+              id="displayVertexConnections"
+            ></p>
+          </div>
+          <div class="find-shortest-container">
+            <div class="shortest-inputs">
+              <input type="text" id="startVertex" placeholder="Start Point" />
+              <p class="start-point-error error" id="startPointError"></p>
+              <input type="text" id="endVertex" placeholder="End Point" />
+              <p class="end-point-error error" id="endPointError"></p>
+            </div>
+            <button class="find-btn" id="findBtn">Find Shortest Path</button>
+            <div class="shortest-modal" id="shortestPathModal">
+              <p class="shortest-length" id="shortestPathLength">Length:</p>
+              <p class="shortest-vertices" id="shortestPathVertices">
+                Vertices:
+              </p>
+            </div>
+          </div>
+          <div class="remove-vertex-container">
+            <div class="remove-vertex-content">
+              <input
+                type="text"
+                id="removeVertexValue"
+                placeholder="Vertex Value"
+              />
+              <p class="remove-vertex-error error" id="removeVertexError"></p>
+            </div>
+            <button
+              class="remove-vertex-btn"
+              id="remove-vertex"
+              for="removeVertexValue"
+            >
+              Remove Vertex
+            </button>
+          </div>
+          <div class="remove-edge-container">
+            <div class="remove-edge-inputs">
+              <input
+                type="text"
+                class="first-edge"
+                id="firstEdge"
+                placeholder="Start vertex"
+              />
+              <p class="remove-edge-error error" id="remEdgeError"></p>
+              <input
+                type="text"
+                class="end-edge"
+                id="endEdge"
+                placeholder="End vertex"
+              />
+              <p class="rem-end-error error" id="remEndError"></p>
+            </div>
+            <button class="rem-edge-btn" id="rem-edge">Remove Edge</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-text">
+        &copy; <span id="copyrightYear"></span> momorocks111
+      </p>
+    </footer>
+  </body>
+</html>

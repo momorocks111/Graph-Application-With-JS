@@ -1,0 +1,424 @@
+:root {
+  --body-bg-clr: #ffffff;
+  --title-clr: #000000;
+  --welcome-title: rgb(46, 46, 46);
+  --welcome-text: rgb(122, 122, 122);
+  --graph-border: #444444;
+  --container-clr: #bdbdbd;
+  --container-border: #000000;
+  --button-background: #ffffff;
+  --button-border: #000000;
+  --error-clr: rgb(196, 0, 0);
+  --btn-text-clr: #000000;
+  --clear-btn-bg-clr: #ffffff;
+  --clear-btn-text-clr: #000;
+  --hover-clr: #bebebe;
+  --hover-shadow: rgb(0, 0, 0);
+  --main-font: "Roboto", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--main-font);
+  background: var(--body-bg-clr);
+}
+
+input {
+  padding: 0.25rem;
+  width: 99%;
+}
+
+button {
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  --body-bg-clr: #222222;
+  --title-clr: #fff;
+  --welcome-title: rgb(223, 223, 223);
+  --welcome-text: rgb(199, 199, 199);
+  --graph-border: #c7c7c7;
+  --container-clr: #353535;
+  --container-border: #ffffff;
+  --button-background: #494949;
+  --button-border: #ffffff;
+  --error-clr: rgb(255, 0, 0);
+  --btn-text-clr: #fff;
+  --clear-btn-bg-clr: #222222;
+  --clear-btn-text-clr: #fff;
+  --hover-clr: #555;
+  --hover-shadow: rgb(255, 255, 255);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Header */
+.header {
+  padding: 1rem;
+  display: grid;
+  row-gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.web-title {
+  font-size: 22px;
+  color: var(--title-clr);
+}
+
+.change-theme {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--title-clr);
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.125rem;
+}
+
+.welcome-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--welcome-title);
+}
+
+.welcome-text {
+  color: var(--welcome-text);
+  font-weight: 500;
+}
+
+/* Main Graph Section */
+.main {
+  display: grid;
+  justify-content: center;
+  margin-inline: 0.5rem;
+}
+
+.graph-section {
+  display: grid;
+  justify-content: center;
+}
+
+.graph-container {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.clear-btn {
+  background: var(--clear-btn-bg-clr);
+  color: var(--clear-btn-text-clr);
+  padding: 0.5rem;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--container-border);
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s;
+}
+
+.clear-btn:hover {
+  box-shadow: 0px 1px 10px var(--hover-shadow);
+}
+
+.graph-canvas {
+  border: 3px solid var(--graph-border);
+  border-radius: 10px;
+  width: 100%;
+  justify-self: center;
+}
+
+/* User GUI */
+.user-gui {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 2rem;
+  border-radius: 10px;
+  width: 95%;
+  justify-self: center;
+  margin-bottom: 4rem;
+}
+
+.find-shortest-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--container-clr);
+  padding: 1rem;
+}
+
+.add-vertex-container,
+.add-edge-container,
+.remove-vertex-container,
+.remove-edge-container,
+.find-connected-vertex {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  background-color: var(--container-clr);
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--container-border);
+}
+
+.find-shortest-container {
+  flex-direction: column;
+  row-gap: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--container-border);
+}
+
+.edge-inputs,
+.shortest-inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+}
+
+.vertex-btn,
+.edge-btn,
+.find-btn,
+.remove-vertex-btn,
+.rem-edge-btn,
+.find-vertex-btn {
+  font-weight: 500;
+  font-size: 14px;
+  background-color: var(--button-background);
+  border: 1px solid var(--button-border);
+  border-radius: 5px;
+  transition: box-shadow 0.4s;
+  color: var(--btn-text-clr);
+}
+
+.vertex-btn:hover,
+.edge-btn:hover,
+.find-btn:hover,
+.remove-vertex-btn:hover,
+.rem-edge-btn:hover,
+.find-vertex-btn:hover {
+  box-shadow: 0 1px 5px var(--title-clr);
+}
+
+.edge-btn,
+.vertex-btn,
+.remove-vertex-btn,
+.rem-edge-btn,
+.find-vertex-btn {
+  width: 100%;
+}
+
+.find-btn {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.error {
+  font-size: 12px;
+  color: var(--error-clr);
+}
+
+/* Clear Modal */
+.clear-modal {
+  position: fixed;
+  top: -200%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  background: var(--body-bg-clr);
+  border: 1px solid var(--graph-border);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.clear-text {
+  color: var(--title-clr);
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.clear-btns-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.yes-btn,
+.no-btn {
+  background: var(--clear-btn-bg-clr);
+  color: var(--clear-btn-text-clr);
+  padding: 1rem;
+  border: 1px solid var(--graph-border);
+  text-align: center;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+.yes-btn:hover,
+.no-btn:hover {
+  box-shadow: 0 1px 10px var(--hover-shadow);
+}
+
+.show-clear {
+  top: 50%;
+}
+
+body.modal-open {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.clear-modal {
+  pointer-events: auto;
+}
+
+/* Shortest Path */
+.shortest-modal {
+  margin-top: 8px;
+}
+
+.shortest-length,
+.display-vertex-connections {
+  color: var(--btn-text-clr);
+}
+
+.shortest-vertices {
+  color: var(--btn-text-clr);
+}
+
+/* Remove Edge Button */
+.rem-edge-btn,
+.remove-vertex-btn {
+  padding-block: 1rem;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-text {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--title-clr);
+}
+
+/* Breakpoints */
+@media screen and (min-width: 488px) {
+  .graph-canvas {
+    width: 120%;
+  }
+  .change-theme {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 668px) {
+  input {
+    padding: 0.5rem;
+  }
+  .web-title {
+    font-size: 28px;
+  }
+  .graph-canvas {
+    width: 150%;
+  }
+}
+
+@media screen and (min-width: 870px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+  .graph-canvas {
+    width: 200%;
+  }
+  .graph-section {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  input {
+    padding: 1rem;
+  }
+  .graph-canvas {
+    width: 300%;
+  }
+  .user-gui {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 4rem;
+  }
+  .add-vertex-container,
+  .add-edge-container,
+  .find-shortest-container,
+  .remove-vertex-container,
+  .remove-edge-container,
+  .find-connected-vertex {
+    padding: 1.5rem;
+  }
+  .find-shortest-container {
+    row-gap: 0;
+  }
+  .edge-btn,
+  .vertex-btn,
+  .find-vertex-btn {
+    height: auto;
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .add-vertex-container,
+  .add-edge-container,
+  .remove-vertex-container,
+  .remove-edge-container,
+  .find-connected-vertex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .graph-canvas {
+    width: 300%;
+  }
+}
